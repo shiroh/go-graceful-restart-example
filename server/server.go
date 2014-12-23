@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/Scalingo/go-graceful-restart-examples/logger"
+	"github.com/Scalingo/go-graceful-restart-example/logger"
 )
 
 type Server struct {
