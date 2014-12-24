@@ -6,8 +6,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/Scalingo/go-graceful-restart-examples/logger"
-	"github.com/Scalingo/go-graceful-restart-examples/server"
+	"github.com/Scalingo/go-graceful-restart-example/logger"
+	"github.com/Scalingo/go-graceful-restart-example/server"
 )
 
 func main() {
