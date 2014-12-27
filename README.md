@@ -31,3 +31,7 @@ Let 10 seconds for the current requests to finish.
 ```
 $ kill -TERM <server pid>
 ```
+
+## Gist of output
+
+https://gist.github.com/Soulou/7ca6a2d4f475f8e2345e
