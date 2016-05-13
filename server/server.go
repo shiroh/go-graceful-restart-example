@@ -50,7 +50,7 @@ func NewFromFD(logger *logger.Logger, fd uintptr, connFDs []uintptr) (*Server, e
 
 	for _, connFD := range connFDs {
 		logger.Println("about to recover connfd: ", connFD)
-		err := recoverConn(logger, connFD)
+		err := recoverConn(s, logger, connFD)
 		if err != nil {
 			logger.Println("Failed to recover connFd ", connFD)
 		}
@@ -58,7 +58,7 @@ func NewFromFD(logger *logger.Logger, fd uintptr, connFDs []uintptr) (*Server, e
 	return s, nil
 }
 
-func recoverConn(logger *logger.Logger, fd uintptr) error {
+func recoverConn(s *Server, logger *logger.Logger, fd uintptr) error {
 	//same as listener fd, the name which is the second parameter of NewFile is required but it means nothing.
 	file := os.NewFile(fd, "/tmp/sock-go-graceful-restart")
 	conn, err := net.FileConn(file)
@@ -69,6 +69,7 @@ func recoverConn(logger *logger.Logger, fd uintptr) error {
 	if !ok {
 		return fmt.Errorf("File descriptor %d is not a valid TCP socket", fd)
 	}
+	s.CM.Conns = append(s.CM.Conns, connTCP)
 	go handleConn(logger, connTCP)
 	return nil
 }
