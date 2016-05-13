@@ -3,8 +3,9 @@
 ## Install and run the server
 
 ```
-$ go get github.com/Scalingo/go-graceful-restart-example
-$ go-graceful-restart-example
+$ git clone
+$ go build
+$ ./go-graceful-restart-example
 2014/12/14 20:26:42 [Server - 4301] Listen on [::]:12345
 [...]
 ```
@@ -24,9 +25,8 @@ $ go run pong.go
 $ kill -HUP <server pid>
 ```
 
-## Stop with timeout
+## Stop Process
 
-Let 10 seconds for the current requests to finish.
 
 ```
 $ kill -TERM <server pid>
