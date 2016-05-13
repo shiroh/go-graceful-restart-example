@@ -31,7 +31,3 @@ $ kill -HUP <server pid>
 ```
 $ kill -TERM <server pid>
 ```
-
-## Gist of output
-
-https://gist.github.com/Soulou/7ca6a2d4f475f8e2345e
