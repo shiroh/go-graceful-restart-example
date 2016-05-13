@@ -1,9 +1,14 @@
 package server
 
-import "sync"
+import (
+	"sync"
+
+	"net"
+)
 
 type ConnectionManager struct {
 	*sync.WaitGroup
+	Conns   []*net.TCPConn
 	Counter int
 }
 
